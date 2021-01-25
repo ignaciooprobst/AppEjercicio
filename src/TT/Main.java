@@ -1,4 +1,4 @@
-package Ejercicio2;
+package TT;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Main {
 
 
-    public static ArrayList convertirIntToString(ArrayList arr) {
+    private static ArrayList convertirIntToString(ArrayList arr) {
         ArrayList<String> sArr= new ArrayList();
         for (int i = 0; i < arr.size(); i++) {
             String s = String.valueOf(arr.get(i));
@@ -15,7 +15,7 @@ public class Main {
         return sArr;
     }
 
-    public static ArrayList convertirStringToInt(ArrayList<String> arr) {
+    private static ArrayList convertirStringToInt(ArrayList<String> arr) {
         ArrayList<Integer> iArr= new ArrayList();
         for (int i = 0; i < arr.size(); i++) {
             int n = Integer.valueOf(arr.get(i));
@@ -24,21 +24,14 @@ public class Main {
         return iArr;
     }
 
-    public static void igualarCifras(ArrayList<String> sArr,int maxCifras){
+    private static void igualarCifras(ArrayList<String> sArr,int maxCifras){
 
         for (int i = 0; i < sArr.size(); i++) {
-            if(sArr.get(i).length() < maxCifras){
-                int cantCifrasFaltantes = maxCifras - sArr.get(i).length();
-                String cifrasFaltantes = "0";
-                for (int j = 1; j < cantCifrasFaltantes; j++) {
-                    cifrasFaltantes += "0";
-                }
-                sArr.set(i, cifrasFaltantes + sArr.get(i));
-            }
+            sArr.set(i, StringUtil.rPad(sArr.get(i), '0', maxCifras));
         }
     }
 
-    public static int contarCifras(ArrayList<String> sArr){
+    private static int contarCifras(ArrayList<String> sArr){
         int a = 0;
 
         for (int i = 0; i < sArr.size(); i++) {
@@ -48,7 +41,7 @@ public class Main {
         return a;
     }
 
-    public static void ordenarEnListas(ArrayList<String> sArr, int x, int maxCifras){
+    private static void ordenarEnListas(ArrayList<String> sArr, int x, int maxCifras){
 
         ArrayList<String> l0 = new ArrayList<>();
         ArrayList<String> l1 = new ArrayList<>();
